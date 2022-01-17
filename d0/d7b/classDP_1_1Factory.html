@@ -120,7 +120,7 @@ template&lt;typename T , typename IDType , typename ... Args&gt; </div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="../../d5/d03/Factory_8hpp_source.html#l00006">6</a> of file <a class="el" href="../../d5/d03/Factory_8hpp_source.html">Factory.hpp</a>.</p>
-<div class="fragment"><div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>{ Registry; }</div>
+<div class="fragment"><div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>{ Factory::Registry; }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -153,7 +153,7 @@ template&lt;typename T , typename IDType , typename ... Args&gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="../../d5/d03/Factory_8hpp_source.html#l00011">11</a> of file <a class="el" href="../../d5/d03/Factory_8hpp_source.html">Factory.hpp</a>.</p>
 <div class="fragment"><div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keywordflow">if</span> (<span class="keyword">auto</span> i = Registry.find(TypeId.id); i != Registry.end())</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keywordflow">if</span> (<span class="keyword">auto</span> i = Factory::Registry.find(TypeId.id); i != Factory::Registry.end())</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        <span class="keywordflow">return</span> i-&gt;second;</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordflow">throw</span> Exception(<span class="stringliteral">&quot;Unregistered Class ID&quot;</span>);</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>}</div>
@@ -198,7 +198,7 @@ template&lt;typename T , typename IDType , typename ... Args&gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="../../d5/d03/Factory_8hpp_source.html#l00020">20</a> of file <a class="el" href="../../d5/d03/Factory_8hpp_source.html">Factory.hpp</a>.</p>
 <div class="fragment"><div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>{</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    CreateInfo&lt;T, Args ...&gt; <span class="keyword">const</span>&amp; createInfo = GetCreateInfo(TypeId);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    CreateInfo&lt;T, Args ...&gt; <span class="keyword">const</span>&amp; createInfo = Factory::GetCreateInfo(TypeId);</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordflow">return</span> createInfo.create(::<span class="keyword">operator</span> <span class="keyword">new</span>(createInfo.size), std::forward&lt;Args&gt;(args) ...);</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>}</div>
 </div><!-- fragment -->

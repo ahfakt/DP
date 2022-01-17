@@ -77,13 +77,13 @@ $(function() {
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> IDType, <span class="keyword">typename</span> ... Args&gt;</div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>Factory&lt;T, IDType, Args ...&gt;::Factory() noexcept</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>{ Registry; }</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>{ Factory::Registry; }</div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> IDType, <span class="keyword">typename</span> ... Args&gt;</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>CreateInfo&lt;T, Args ...&gt; <span class="keyword">const</span>&amp;</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>Factory&lt;T, IDType, Args ...&gt;::GetCreateInfo(TypeID <span class="keyword">const</span>&amp; TypeId)</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keywordflow">if</span> (<span class="keyword">auto</span> i = Registry.find(TypeId.id); i != Registry.end())</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keywordflow">if</span> (<span class="keyword">auto</span> i = Factory::Registry.find(TypeId.id); i != Factory::Registry.end())</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        <span class="keywordflow">return</span> i-&gt;second;</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordflow">throw</span> Exception(<span class="stringliteral">&quot;Unregistered Class ID&quot;</span>);</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>}</div>
@@ -92,14 +92,14 @@ $(function() {
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>T*</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>Factory&lt;T, IDType, Args ...&gt;::Create(TypeID <span class="keyword">const</span>&amp; TypeId, Args&amp;&amp; ... args)</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>{</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    CreateInfo&lt;T, Args ...&gt; <span class="keyword">const</span>&amp; createInfo = GetCreateInfo(TypeId);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    CreateInfo&lt;T, Args ...&gt; <span class="keyword">const</span>&amp; createInfo = Factory::GetCreateInfo(TypeId);</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordflow">return</span> createInfo.create(::<span class="keyword">operator</span> <span class="keyword">new</span>(createInfo.size), std::forward&lt;Args&gt;(args) ...);</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>}</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> IDType, <span class="keyword">typename</span> ... Args&gt;</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> DT, IDType typeID&gt;</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>Factory&lt;T, IDType, Args ...&gt;::Registrar&lt;DT, typeID&gt;::Registrar()</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>{ IsRegistered; }</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>{ Registrar::IsRegistered; }</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>}<span class="comment">//namespace DP</span></div>
 </div><!-- fragment --></div><!-- contents -->
