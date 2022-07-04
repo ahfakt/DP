@@ -1,6 +1,8 @@
 #ifndef DP_CREATE_INFO_H
 #define DP_CREATE_INFO_H
 
+#include <cstdint>
+
 namespace DP {
 
 /**

@@ -12,7 +12,7 @@ Factory<T, IDType, Args ...>::GetCreateInfo(TypeID const& TypeId)
 {
 	if (auto i = Factory::Registry.find(TypeId.id); i != Factory::Registry.end())
 		return i->second;
-	throw Exception("Unregistered Class ID");
+	throw Exception("Unregistered Class");
 }
 
 template <typename T, typename IDType, typename ... Args>
@@ -25,7 +25,7 @@ Factory<T, IDType, Args ...>::Create(TypeID const& TypeId, Args&& ... args)
 
 template <typename T, typename IDType, typename ... Args>
 template <typename DT, IDType typeID>
-Factory<T, IDType, Args ...>::Registrar<DT, typeID>::Registrar()
+Factory<T, IDType, Args ...>::Registrar<DT, typeID>::Registrar() noexcept
 { Registrar::IsRegistered; }
 
 }//namespace DP

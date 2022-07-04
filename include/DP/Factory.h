@@ -31,10 +31,10 @@ public:
 		}();
 
 	protected:
-		Registrar();
-
-	public:
 		static constexpr TypeID TypeId {typeID};
+
+		__attribute__((__used__))
+		Registrar() noexcept;
 	};//class Registrar<DT, IDType>
 
 	static CreateInfo<T, Args ...> const&
@@ -42,6 +42,9 @@ public:
 
 	static T*
 	Create(TypeID const& TypeId, Args&& ... args);
+
+	virtual TypeID
+	getTypeId() = 0;
 };//class Factory<T, IDType, Args ...>
 
 }//namespace DP
