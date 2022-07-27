@@ -12,12 +12,12 @@ set(INC_LIST
 set(SRC_LIST
 		${SRC_ROOT}/Factory.hpp)
 
-add_library(${PROJECT_NAME} INTERFACE)
 add_library(${PROJECT_NAME}OBJ INTERFACE)
-target_include_directories(${PROJECT_NAME} INTERFACE include)
+add_library(${PROJECT_NAME} INTERFACE)
 target_include_directories(${PROJECT_NAME}OBJ INTERFACE include)
-target_sources(${PROJECT_NAME} INTERFACE ${INC_LIST} PRIVATE ${SRC_LIST})
+target_include_directories(${PROJECT_NAME} INTERFACE include)
 target_sources(${PROJECT_NAME}OBJ INTERFACE ${INC_LIST} PRIVATE ${SRC_LIST})
+target_sources(${PROJECT_NAME} INTERFACE ${INC_LIST} PRIVATE ${SRC_LIST})
 
 
 if (CMAKE_BUILD_TYPE MATCHES Debug)
