@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=9"/>
 		<meta name="generator" content="Doxygen 1.9.3"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
-		<title>DP: DP::Factory&lt; T, IdType, Args &gt; Class Template Reference</title>
+		<title>DP: DP::Factory&lt; Base, ID, Args &gt; Class Template Reference</title>
 		<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 		<script type="text/javascript" src="../../jquery.js"></script>
 		<script type="text/javascript" src="../../dynsections.js"></script>
@@ -25,7 +25,7 @@
 						<td id="projectalign" style="padding-left: 0.5em;">
 							<div id="projectname">DP
 							</div>
-							<div id="projectbrief">Template Design Patterns Library</div>
+							<div id="projectbrief">Design Patterns Template Library</div>
 						</td>
 					</tr>
 				</tbody>
@@ -72,7 +72,7 @@ $(function() {
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="../../df/d23/classDP_1_1Factory-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">DP::Factory&lt; T, IdType, Args &gt; Class Template Reference</div></div>
+  <div class="headertitle"><div class="title">DP::Factory&lt; Base, ID, Args &gt; Class Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
@@ -85,96 +85,18 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:af5c440f3d1338615c4840b0ad69c9941"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../db/d02/structDP_1_1CreateInfo.html">CreateInfo</a>&lt; T, Args ... &gt; const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d7b/classDP_1_1Factory.html#af5c440f3d1338615c4840b0ad69c9941">GetCreateInfo</a> (IdType const &amp;typeId)</td></tr>
-<tr class="separator:af5c440f3d1338615c4840b0ad69c9941"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45657ccdac48075d290b1a0e4a7a4e9f"><td class="memItemLeft" align="right" valign="top">static T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d7b/classDP_1_1Factory.html#a45657ccdac48075d290b1a0e4a7a4e9f">Create</a> (IdType const &amp;typeId, Args &amp;&amp;... args)</td></tr>
-<tr class="separator:a45657ccdac48075d290b1a0e4a7a4e9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af527c4f708367aea470d022246879c60"><td class="memItemLeft" align="right" valign="top"><a id="af527c4f708367aea470d022246879c60" name="af527c4f708367aea470d022246879c60"></a>
+static <a class="el" href="../../db/d02/structDP_1_1CreateInfo.html">CreateInfo</a>&lt; Base, Args ... &gt; const &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetCreateInfo</b> (ID const &amp;id)</td></tr>
+<tr class="separator:af527c4f708367aea470d022246879c60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afaf2a4762752be7fcfc4e9e50b75d47a"><td class="memItemLeft" align="right" valign="top"><a id="afaf2a4762752be7fcfc4e9e50b75d47a" name="afaf2a4762752be7fcfc4e9e50b75d47a"></a>
+static Base *&#160;</td><td class="memItemRight" valign="bottom"><b>Create</b> (ID const &amp;id, Args &amp;&amp;... args)</td></tr>
+<tr class="separator:afaf2a4762752be7fcfc4e9e50b75d47a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;typename T, typename IdType, typename ... Args&gt;<br />
-class DP::Factory&lt; T, IdType, Args &gt;</div>
-<p class="definition">Definition at line <a class="el" href="../../d2/d2f/Factory_8h_source.html#l00011">11</a> of file <a class="el" href="../../d2/d2f/Factory_8h_source.html">Factory.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="af5c440f3d1338615c4840b0ad69c9941" name="af5c440f3d1338615c4840b0ad69c9941"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af5c440f3d1338615c4840b0ad69c9941">&#9670;&nbsp;</a></span>GetCreateInfo()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename IdType , typename ... Args&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../db/d02/structDP_1_1CreateInfo.html">CreateInfo</a>&lt; T, Args ... &gt; const  &amp; <a class="el" href="../../d0/d7b/classDP_1_1Factory.html">DP::Factory</a>&lt; T, IdType, Args &gt;::GetCreateInfo </td>
-          <td>(</td>
-          <td class="paramtype">IdType const &amp;&#160;</td>
-          <td class="paramname"><em>typeId</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d5/d03/Factory_8hpp_source.html#l00007">7</a> of file <a class="el" href="../../d5/d03/Factory_8hpp_source.html">Factory.hpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">    8</span>{</div>
-<div class="line"><span class="lineno">    9</span>    <span class="keywordflow">if</span> (<span class="keyword">auto</span> i = Factory::Registry.find(typeId); i != Factory::Registry.end())</div>
-<div class="line"><span class="lineno">   10</span>        <span class="keywordflow">return</span> i-&gt;second;</div>
-<div class="line"><span class="lineno">   11</span>    <span class="keywordflow">throw</span> Exception(<span class="stringliteral">&quot;Unregistered Id&quot;</span>);</div>
-<div class="line"><span class="lineno">   12</span>}</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a45657ccdac48075d290b1a0e4a7a4e9f" name="a45657ccdac48075d290b1a0e4a7a4e9f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a45657ccdac48075d290b1a0e4a7a4e9f">&#9670;&nbsp;</a></span>Create()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename IdType , typename ... Args&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">T * <a class="el" href="../../d0/d7b/classDP_1_1Factory.html">DP::Factory</a>&lt; T, IdType, Args &gt;::Create </td>
-          <td>(</td>
-          <td class="paramtype">IdType const &amp;&#160;</td>
-          <td class="paramname"><em>typeId</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Args &amp;&amp;...&#160;</td>
-          <td class="paramname"><em>args</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d5/d03/Factory_8hpp_source.html#l00016">16</a> of file <a class="el" href="../../d5/d03/Factory_8hpp_source.html">Factory.hpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   17</span>{</div>
-<div class="line"><span class="lineno">   18</span>    CreateInfo&lt;T, Args ...&gt; <span class="keyword">const</span>&amp; createInfo = Factory::GetCreateInfo(typeId);</div>
-<div class="line"><span class="lineno">   19</span>    <span class="keywordflow">return</span> createInfo.create(::operator <span class="keyword">new</span>(createInfo.size), std::forward&lt;Args&gt;(args) ...);</div>
-<div class="line"><span class="lineno">   20</span>}</div>
-</div><!-- fragment -->
-</div>
-</div>
-</div><!-- contents -->
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename Base, typename ID, typename ... Args&gt;<br />
+class DP::Factory&lt; Base, ID, Args &gt;</div>
+<p class="definition">Definition at line <a class="el" href="../../d5/d03/Factory_8hpp_source.html#l00011">11</a> of file <a class="el" href="../../d5/d03/Factory_8hpp_source.html">Factory.hpp</a>.</p>
+</div></div><!-- contents -->
 <!-- start footer part -->
 		<script src="../../custom.js"></script>
 	</body>
