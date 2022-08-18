@@ -29,11 +29,20 @@ public:
 		Registrar();
 	};//struct Registrar<Derived, ID>
 
+	static std::uint32_t
+	GetSize();
+
 	static CreateInfo<Base, Args ...> const&
 	GetCreateInfo(ID const& id);
 
+	static CreateInfo<Base, Args ...> const&
+	GetCreateInfoAtIndex(std::uint32_t i);
+
 	static Base*
 	Create(ID const& id, Args&& ... args);
+
+	static Base*
+	CreateWithIndex(std::uint32_t i, Args&& ... args);
 };//class DP::Factory<Base, ID, Args ...>
 
 }//namespace DP

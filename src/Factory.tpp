@@ -7,6 +7,11 @@ template <typename Derived, ID id>
 Factory<Base, ID, Args...>::Registrar<Derived, id>::Registrar()
 { TYPE; }
 
+template <typename Base, typename ID, typename... Args>
+std::uint32_t
+Factory<Base, ID, Args...>::GetSize()
+{ return Factory::Registry.size(); }
+
 template <typename Base, typename ID, typename ... Args>
 CreateInfo<Base, Args ...> const&
 Factory<Base, ID, Args ...>::GetCreateInfo(ID const& id)
@@ -16,11 +21,31 @@ Factory<Base, ID, Args ...>::GetCreateInfo(ID const& id)
 	throw Exception("Unregistered ID");
 }
 
+template <typename Base, typename ID, typename... Args>
+CreateInfo<Base, Args ...> const&
+Factory<Base, ID, Args...>::GetCreateInfoAtIndex(std::uint32_t i)
+{
+	if (i < Factory::Registry.size()) { // TODO more efficient
+		auto b = Factory::Registry.begin();
+		std::advance(b, i);
+		return b->second;
+	}
+	throw Exception("Unregistered ID");
+}
+
 template <typename Base, typename ID, typename ... Args>
 Base*
 Factory<Base, ID, Args ...>::Create(ID const& id, Args&& ... args)
 {
 	auto const& createInfo = Factory::GetCreateInfo(id);
+	return createInfo.constructor(::operator new(createInfo.size), std::forward<Args>(args) ...);
+}
+
+template <typename Base, typename ID, typename... Args>
+Base*
+Factory<Base, ID, Args...>::CreateWithIndex(std::uint32_t i, Args&& ... args)
+{
+	auto const& createInfo = Factory::GetCreateInfoAtIndex(i);
 	return createInfo.constructor(::operator new(createInfo.size), std::forward<Args>(args) ...);
 }
 

@@ -52,6 +52,16 @@ struct MemberAccess {
 	static MemberType<m, M ...> const&
 	Get(void const* p) noexcept
 	{ return reinterpret_cast<P const*>(p)->*Value<m, M ...>; }
+
+	template <std::size_t m>
+	static MemberType<m, M ...>&
+	Get(P& p) noexcept
+	{ return p.*Value<m, M ...>; }
+
+	template <std::size_t m>
+	static MemberType<m, M ...> const&
+	Get(P const& p) noexcept
+	{ return p.*Value<m, M ...>; }
 };//struct DP::MemberAccess<P, M ...>
 
 
