@@ -102,18 +102,27 @@ $(function() {
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <a class="code hl_struct" href="../../d3/d51/structDP_1_1Factory_1_1Registrar.html">Registrar</a>();</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    };<span class="comment">//struct Registrar&lt;Derived, ID&gt;</span></div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keyword">static</span> <a class="code hl_struct" href="../../db/d02/structDP_1_1CreateInfo.html">CreateInfo</a>&lt;Base, Args ...&gt; <span class="keyword">const</span>&amp;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    GetCreateInfo(ID <span class="keyword">const</span>&amp; <span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keyword">static</span> std::uint32_t</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    GetSize();</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keyword">static</span> Base*</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    Create(ID <span class="keyword">const</span>&amp; <span class="keywordtype">id</span>, Args&amp;&amp; ... args);</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>};<span class="comment">//class DP::Factory&lt;Base, ID, Args ...&gt;</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>}<span class="comment">//namespace DP</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keyword">static</span> <a class="code hl_struct" href="../../db/d02/structDP_1_1CreateInfo.html">CreateInfo</a>&lt;Base, Args ...&gt; <span class="keyword">const</span>&amp;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    GetCreateInfo(ID <span class="keyword">const</span>&amp; <span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keyword">static</span> <a class="code hl_struct" href="../../db/d02/structDP_1_1CreateInfo.html">CreateInfo</a>&lt;Base, Args ...&gt; <span class="keyword">const</span>&amp;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    GetCreateInfoAtIndex(std::uint32_t i);</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#include &quot;../../src/Factory.tpp&quot;</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#endif </span><span class="comment">//DP_FACTORY_HPP</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keyword">static</span> Base*</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    Create(ID <span class="keyword">const</span>&amp; <span class="keywordtype">id</span>, Args&amp;&amp; ... args);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keyword">static</span> Base*</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    CreateWithIndex(std::uint32_t i, Args&amp;&amp; ... args);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>};<span class="comment">//class DP::Factory&lt;Base, ID, Args ...&gt;</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>}<span class="comment">//namespace DP</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#include &quot;../../src/Factory.tpp&quot;</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">#endif </span><span class="comment">//DP_FACTORY_HPP</span></div>
 <div class="ttc" id="aclassDP_1_1Factory_html"><div class="ttname"><a href="../../d0/d7b/classDP_1_1Factory.html">DP::Factory</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d03/Factory_8hpp_source.html#l00011">Factory.hpp:11</a></div></div>
 <div class="ttc" id="astructDP_1_1CreateInfo_html"><div class="ttname"><a href="../../db/d02/structDP_1_1CreateInfo.html">DP::CreateInfo</a></div><div class="ttdoc">Helper struct to be used to create polymorphic objects.</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d41/CreateInfo_8hpp_source.html#l00020">CreateInfo.hpp:20</a></div></div>
 <div class="ttc" id="astructDP_1_1Factory_1_1Exception_html"><div class="ttname"><a href="../../d6/d1c/structDP_1_1Factory_1_1Exception.html">DP::Factory::Exception</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d03/Factory_8hpp_source.html#l00015">Factory.hpp:16</a></div></div>
