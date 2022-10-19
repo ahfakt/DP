@@ -47,6 +47,6 @@ public:
 
 }//namespace DP
 
-#include "../../src/Factory.tpp"
+#include "../../src/DP/Factory.tpp"
 
 #endif //DP_FACTORY_HPP
