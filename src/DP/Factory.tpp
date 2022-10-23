@@ -38,7 +38,7 @@ std::unique_ptr<Base>
 Factory<Base, ID, Args ...>::Create(ID const& id, Args&& ... args)
 {
 	auto const& createInfo = Factory::GetCreateInfo(id);
-	return createInfo.constructor(::operator new(createInfo.size), std::forward<Args>(args) ...);
+	return {createInfo.constructor(::operator new(createInfo.size), std::forward<Args>(args) ...)};
 }
 
 template <typename Base, typename ID, typename... Args>
@@ -46,7 +46,7 @@ std::unique_ptr<Base>
 Factory<Base, ID, Args...>::CreateNth(std::uint32_t i, Args&& ... args)
 {
 	auto const& createInfo = Factory::GetCreateInfoNth(i);
-	return createInfo.constructor(::operator new(createInfo.size), std::forward<Args>(args) ...);
+	return {createInfo.constructor(::operator new(createInfo.size), std::forward<Args>(args) ...)};
 }
 
 }//namespace DP
