@@ -2,6 +2,7 @@
 #define DP_FACTORY_HPP
 
 #include "CreateInfo.hpp"
+#include <memory>
 #include <stdexcept>
 #include <unordered_map>
 
@@ -36,13 +37,13 @@ public:
 	GetCreateInfo(ID const& id);
 
 	static CreateInfo<Base, Args ...> const&
-	GetCreateInfoAtIndex(std::uint32_t i);
+	GetCreateInfoNth(std::uint32_t i);
 
-	static Base*
+	static std::unique_ptr<Base>
 	Create(ID const& id, Args&& ... args);
 
-	static Base*
-	CreateWithIndex(std::uint32_t i, Args&& ... args);
+	static std::unique_ptr<Base>
+	CreateNth(std::uint32_t i, Args&& ... args);
 };//class DP::Factory<Base, ID, Args ...>
 
 }//namespace DP

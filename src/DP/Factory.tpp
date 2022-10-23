@@ -23,7 +23,7 @@ Factory<Base, ID, Args ...>::GetCreateInfo(ID const& id)
 
 template <typename Base, typename ID, typename... Args>
 CreateInfo<Base, Args ...> const&
-Factory<Base, ID, Args...>::GetCreateInfoAtIndex(std::uint32_t i)
+Factory<Base, ID, Args...>::GetCreateInfoNth(std::uint32_t i)
 {
 	if (i < Factory::Registry.size()) { // TODO more efficient
 		auto b = Factory::Registry.begin();
@@ -34,7 +34,7 @@ Factory<Base, ID, Args...>::GetCreateInfoAtIndex(std::uint32_t i)
 }
 
 template <typename Base, typename ID, typename ... Args>
-Base*
+std::unique_ptr<Base>
 Factory<Base, ID, Args ...>::Create(ID const& id, Args&& ... args)
 {
 	auto const& createInfo = Factory::GetCreateInfo(id);
@@ -42,10 +42,10 @@ Factory<Base, ID, Args ...>::Create(ID const& id, Args&& ... args)
 }
 
 template <typename Base, typename ID, typename... Args>
-Base*
-Factory<Base, ID, Args...>::CreateWithIndex(std::uint32_t i, Args&& ... args)
+std::unique_ptr<Base>
+Factory<Base, ID, Args...>::CreateNth(std::uint32_t i, Args&& ... args)
 {
-	auto const& createInfo = Factory::GetCreateInfoAtIndex(i);
+	auto const& createInfo = Factory::GetCreateInfoNth(i);
 	return createInfo.constructor(::operator new(createInfo.size), std::forward<Args>(args) ...);
 }
 
