@@ -2,48 +2,48 @@
 
 namespace DP {
 
-template <typename Base, typename ID, typename ... Args>
-template <typename Derived, ID id>
-Factory<Base, ID, Args...>::Registrar<Derived, id>::Registrar()
+template <typename Base, typename Type, typename ... Args>
+template <typename Derived, Type type>
+Factory<Base, Type, Args...>::Registrar<Derived, type>::Registrar()
 { TYPE; }
 
-template <typename Base, typename ID, typename... Args>
+template <typename Base, typename Type, typename... Args>
 std::uint32_t
-Factory<Base, ID, Args...>::GetSize()
+Factory<Base, Type, Args...>::GetSize()
 { return Factory::Registry.size(); }
 
-template <typename Base, typename ID, typename ... Args>
+template <typename Base, typename Type, typename ... Args>
 CreateInfo<Base, Args ...> const&
-Factory<Base, ID, Args ...>::GetCreateInfo(ID const& id)
+Factory<Base, Type, Args ...>::GetCreateInfo(Type const& type)
 {
-	if (auto i = Factory::Registry.find(id); i != Factory::Registry.end())
+	if (auto i = Factory::Registry.find(type); i != Factory::Registry.end())
 		return i->second;
-	throw Exception("Unregistered ID");
+	throw Exception("Unregistered Type");
 }
 
-template <typename Base, typename ID, typename... Args>
+template <typename Base, typename Type, typename... Args>
 CreateInfo<Base, Args ...> const&
-Factory<Base, ID, Args...>::GetCreateInfoNth(std::uint32_t i)
+Factory<Base, Type, Args...>::GetCreateInfoNth(std::uint32_t i)
 {
 	if (i < Factory::Registry.size()) { // TODO more efficient
 		auto b = Factory::Registry.begin();
 		std::advance(b, i);
 		return b->second;
 	}
-	throw Exception("Unregistered ID");
+	throw Exception("Unregistered Type");
 }
 
-template <typename Base, typename ID, typename ... Args>
+template <typename Base, typename Type, typename ... Args>
 std::unique_ptr<Base>
-Factory<Base, ID, Args ...>::Create(ID const& id, Args&& ... args)
+Factory<Base, Type, Args ...>::Create(Type const& type, Args&& ... args)
 {
-	auto const& createInfo = Factory::GetCreateInfo(id);
+	auto const& createInfo = Factory::GetCreateInfo(type);
 	return std::unique_ptr<Base>{createInfo.constructor(::operator new(createInfo.size), std::forward<Args>(args) ...)};
 }
 
-template <typename Base, typename ID, typename... Args>
+template <typename Base, typename Type, typename... Args>
 std::unique_ptr<Base>
-Factory<Base, ID, Args...>::CreateNth(std::uint32_t i, Args&& ... args)
+Factory<Base, Type, Args...>::CreateNth(std::uint32_t i, Args&& ... args)
 {
 	auto const& createInfo = Factory::GetCreateInfoNth(i);
 	return std::unique_ptr<Base>{createInfo.constructor(::operator new(createInfo.size), std::forward<Args>(args) ...)};
