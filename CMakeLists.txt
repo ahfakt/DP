@@ -2,19 +2,10 @@ cmake_minimum_required(VERSION 3.14.0)
 project(DP VERSION 0.7 DESCRIPTION "Design Patterns Template Library")
 
 
-set(INC_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/inc)
-set(SRC_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/src)
-set(INC_LIST
-		${INC_ROOT}/${PROJECT_NAME}/Builder.hpp
-		${INC_ROOT}/${PROJECT_NAME}/CreateInfo.hpp
-		${INC_ROOT}/${PROJECT_NAME}/Factory.hpp)
-set(SRC_LIST
-		${SRC_ROOT}/${PROJECT_NAME}/Factory.tpp)
-
-
 add_library(${PROJECT_NAME} INTERFACE)
 target_include_directories(${PROJECT_NAME} INTERFACE inc)
-target_sources(${PROJECT_NAME} INTERFACE ${INC_LIST} PRIVATE ${SRC_LIST})
+file(GLOB INC ${CMAKE_CURRENT_SOURCE_DIR}/inc/${PROJECT_NAME}/*.hpp)
+target_sources(${PROJECT_NAME} INTERFACE ${INC})
 
 
 if (CMAKE_BUILD_TYPE MATCHES Debug)
