@@ -2,11 +2,6 @@
 
 namespace DP {
 
-template <typename Base, typename Type, typename ... Args>
-template <typename Derived, Type type>
-Factory<Base, Type, Args...>::Registrar<Derived, type>::Registrar()
-{ TYPE; }
-
 template <typename Base, typename Type, typename... Args>
 std::uint32_t
 Factory<Base, Type, Args...>::GetSize()
@@ -30,7 +25,7 @@ Factory<Base, Type, Args...>::GetCreateInfoNth(std::uint32_t i)
 		std::advance(b, i);
 		return b->second;
 	}
-	throw Exception("Unregistered Type");
+	throw Exception{"Unregistered Type"};
 }
 
 template <typename Base, typename Type, typename ... Args>

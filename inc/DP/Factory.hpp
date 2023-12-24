@@ -1,5 +1,4 @@
-#ifndef DP_FACTORY_HPP
-#define DP_FACTORY_HPP
+#pragma once
 
 #include "CreateInfo.hpp"
 #include <memory>
@@ -19,16 +18,14 @@ public:
 	template <typename Derived, Type type>
 	struct Registrar {
 		static inline const Type TYPE = []() {
-			if (auto [pair, inserted] = Factory::Registry.try_emplace(type,
-					[] (void* ptr, Args&& ... args) -> Base* { return ::new(ptr) Derived(std::forward<Args>(args) ...); },
+			if (auto [pair, inserted] = Registry.try_emplace(type,
+					[] (void* ptr, Args&& ... args) -> Base*
+					{ return ::new(ptr) Derived(std::forward<Args>(args) ...); },
 					sizeof(Derived)); inserted)
 				return pair->first;
-			throw Exception("Registered Type");
+			throw Exception{"Registered Type"};
 		}();
-	protected:
-		__attribute__((__used__))
-		Registrar();
-	};//struct Registrar<Derived, Type>
+	};//struct DP::Factory<Base, Type, Args ...>::Registrar<Derived, type>
 
 	static std::uint32_t
 	GetSize();
@@ -49,5 +46,3 @@ public:
 }//namespace DP
 
 #include "../../src/DP/Factory.tpp"
-
-#endif //DP_FACTORY_HPP

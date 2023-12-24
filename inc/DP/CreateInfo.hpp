@@ -1,5 +1,4 @@
-#ifndef DP_CREATE_INFO_HPP
-#define DP_CREATE_INFO_HPP
+#pragma once
 
 #include <cstdint>
 
@@ -25,5 +24,3 @@ struct CreateInfo {
 };//struct DP::CreateInfo<T, Args ...>
 
 }//namespace DP
-
-#endif //DP_CREATE_INFO_HPP
