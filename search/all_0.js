@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['builder_0',['Builder',['../d5/d44/classDP_1_1Builder.html',1,'DP']]]
+  ['constructor_0',['constructor',['../db/d02/structDP_1_1CreateInfo.html#aaf8bae3383adf82c98cdf227cbdcbc7e',1,'DP::CreateInfo']]],
+  ['createinfo_1',['CreateInfo',['../db/d02/structDP_1_1CreateInfo.html',1,'DP']]]
 ];

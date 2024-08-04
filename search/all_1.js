@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['constructor_0',['constructor',['../db/d02/structDP_1_1CreateInfo.html#aaf8bae3383adf82c98cdf227cbdcbc7e',1,'DP::CreateInfo']]],
-  ['createinfo_1',['CreateInfo',['../db/d02/structDP_1_1CreateInfo.html',1,'DP']]]
+  ['exception_0',['Exception',['../d6/d1c/structDP_1_1Factory_1_1Exception.html',1,'DP::Factory']]]
 ];

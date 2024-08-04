@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['factory_0',['Factory',['../d0/d7b/classDP_1_1Factory.html',1,'DP']]]
+  ['registrar_0',['Registrar',['../d3/d51/structDP_1_1Factory_1_1Registrar.html',1,'DP::Factory']]]
 ];
