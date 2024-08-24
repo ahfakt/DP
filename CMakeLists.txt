@@ -5,10 +5,11 @@ project(DP VERSION 0.7 DESCRIPTION "Design Patterns Template Library")
 set(CMAKE_CXX_STANDARD 20)
 
 
-add_library(${PROJECT_NAME} INTERFACE)
-target_include_directories(${PROJECT_NAME} INTERFACE inc)
 file(GLOB INC ${CMAKE_CURRENT_SOURCE_DIR}/inc/${PROJECT_NAME}/*.hpp)
+
+add_library(${PROJECT_NAME} INTERFACE)
 target_sources(${PROJECT_NAME} INTERFACE ${INC})
+target_include_directories(${PROJECT_NAME} INTERFACE inc)
 
 
 if (CMAKE_BUILD_TYPE MATCHES Debug)
